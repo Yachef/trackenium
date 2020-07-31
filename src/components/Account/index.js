@@ -3,7 +3,7 @@ import React from 'react';
 import { AuthUserContext, withAuthorization } from '../Session';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
-import { Typography, Container, Grid, Paper } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
  
 const AccountPage = () => (
   <AuthUserContext.Consumer>
