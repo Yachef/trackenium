@@ -36,7 +36,7 @@ const DropdownMenu = ({ firebase, username }) => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem><Link to={ROUTES.ACCOUNT} style={{ textDecoration: 'none', color:"black" }}>Mon Compte</Link></MenuItem>
+          <MenuItem onClick = {handleClose  }><Link to={ROUTES.ACCOUNT} style={{ textDecoration: 'none', color:"black" }}>Mon Compte</Link></MenuItem>
           <MenuItem onClick = {firebase.doSignOut}>Déconnexion <ExitToAppIcon style = {{marginLeft:"5px"}}/></MenuItem>
         </Menu>
     </div>

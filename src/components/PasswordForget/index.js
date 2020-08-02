@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-import { Button, Box, CircularProgress, TextField } from '@material-ui/core';
+import { Button, Box, CircularProgress, TextField, DialogContent, DialogActions } from '@material-ui/core';
 
 import FormBaseStyle from "../FormBaseStyle"
 import SimpleDialog from '../SimpleDialog';
@@ -96,8 +96,12 @@ class PasswordForgetFormBase extends Component {
           </form>
         </FormBaseStyle>     
         <SimpleDialog title = "Réinitialisation demandée !" open = {dialog} onClose = {() => this.setState({...INITIAL_STATE})}>
-            <p>Un email pour réinitialiser votre mot de passe vous a été envoyé.</p>
-            <Button color="primary" onClick = {this.handleCloseDialog}> Retourner à l'accueil </Button>
+            <DialogContent>
+              <p>Un email pour réinitialiser votre mot de passe vous a été envoyé.</p>
+            </DialogContent>
+            <DialogActions>
+              <Button color="primary" onClick = {this.handleCloseDialog}> Retourner à l'accueil </Button>
+            </DialogActions>
         </SimpleDialog>
       </div>
     );
