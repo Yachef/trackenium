@@ -1,5 +1,4 @@
 import React from 'react';
-import soundfile from './media/t-rex-roar.mp3'
 
 
 const AudioProgressBar = ({mediaURL}) => {
