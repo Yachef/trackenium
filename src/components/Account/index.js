@@ -9,7 +9,6 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
       <div>
-        <Typography variant="h5">Compte : {authUser.email}</Typography>
         <Grid container spacing={3} style = {{marginTop:"40px"}}>
           <Grid item lg={6} style = {{width:'100%'}}>
             <div className = 'centered'>

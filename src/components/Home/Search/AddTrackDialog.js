@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withFirebase } from '../../Firebase';
+import { withAuthorization } from '../../Session'
 
 import { DialogContent, DialogContentText, TextField, DialogActions, Button, Dialog, DialogTitle, CircularProgress } from '@material-ui/core';
 
@@ -14,7 +14,6 @@ const INITIAL_STATE = {
 
 class AddTrackDialog extends Component{
     constructor(props){
-        console.log("zdzdz")
         super(props)
         this.state = {...INITIAL_STATE}
     }
@@ -37,6 +36,7 @@ class AddTrackDialog extends Component{
                         name:this.state.title,
                         author:this.state.author,
                         url:downloadURL,
+                        createdBy:this.props.authUser.uid
                     }, (error)=> {
                         if(error){
                             alert(error)
@@ -97,7 +97,7 @@ class AddTrackDialog extends Component{
                             onChange = {this.onChange} 
                             margin="dense"
                             name="author"
-                            label="Artiste"
+                            label="Artiste(s)"
                             type="text"
                             fullWidth
                         />
@@ -123,5 +123,7 @@ class AddTrackDialog extends Component{
         );
     }
 }
- 
-export default withFirebase(AddTrackDialog);
+
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(AddTrackDialog);

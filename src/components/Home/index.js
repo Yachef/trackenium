@@ -26,7 +26,7 @@ class HomePage extends Component {
       openDialog:false
     }
   }
-  componentWillMount(){
+  componentDidMount(){
     this.props.firebase.tracks().on('value',(snapshot) =>{
       this.setState({
         tracks:snapshot.val(),
